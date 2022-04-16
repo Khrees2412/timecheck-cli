@@ -8,9 +8,10 @@ import (
 )
 
 type Info struct {
-	Time       string
-	Date       string
-	Population string
+	time string
+	date string
+	// timeDifference chan time.Duration
+	population string
 }
 
 func FetchInfo(location string) (*Info, error) {
@@ -45,16 +46,17 @@ func FetchInfo(location string) (*Info, error) {
 		for _, v := range population {
 			i = append(i, string(v))
 		}
-		k := i[11:]
+		k := i[12:]
 		for _, v := range k {
 			p += v
 		}
 
 	})
+
 	c.Visit(fmt.Sprintf("https://time.is/%s", location))
 	return &Info{
-		Time:       t,
-		Date:       d,
-		Population: p,
+		time:       t,
+		date:       d,
+		population: p,
 	}, nil
 }

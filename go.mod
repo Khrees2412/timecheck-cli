@@ -1,4 +1,4 @@
-module github.com/khrees2412/timecheck
+module github.com/khrees2412/timecheck-cli
 
 go 1.16
 

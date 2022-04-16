@@ -3,7 +3,6 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -11,7 +10,7 @@ import (
 var infoCmd = &cobra.Command{
 	Use:   "get",
 	Short: "To get the information you need",
-	Long:  `...`,
+	Long:  `This command is what helps timecheck know what you want to do`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		location, _ := cmd.Flags().GetString("location")
@@ -19,7 +18,7 @@ var infoCmd = &cobra.Command{
 			data, err := FetchInfo(location)
 			fmt.Println(PrettyPrint(data))
 			if err != nil {
-				log.Fatalln(err)
+				fmt.Println(err)
 			}
 		}
 
